@@ -16,9 +16,11 @@ let Mountains: Mountain[] = [{
 }]
 
 function findNameOfTallestMountain(Mountains) {
-    let mtn = Mountains[0].score;
-    Mountains.map(arr => mtn > arr.score ? mtn = arr.score : mtn)
-    return mtn
+    let mtn = Mountains[0];
+    Mountains.forEach((object) => {
+        mtn.height < object.height ? mtn = object : mtn
+    })
+    return mtn.name
 }
 
 let Mtns = findNameOfTallestMountain(Mountains);
